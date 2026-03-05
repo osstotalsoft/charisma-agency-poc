@@ -1,0 +1,10 @@
+{
+  "node_version": "20",
+  "dependencies": [
+    "."
+  ],
+  "graphs": {
+    "agent001": "./src/agent001/agent.ts:agent"
+  },
+  "env": ".env.local"
+}

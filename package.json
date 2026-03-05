@@ -1,0 +1,26 @@
+{
+  "name": "charisma-agency",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "langgraphjs dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@langchain/core": "^1.1.30",
+    "@langchain/langgraph": "^1.2.0",
+    "@langchain/openai": "^1.2.12",
+    "dotenv": "^17.3.1",
+    "langchain": "^1.2.29",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@langchain/langgraph-cli": "^1.1.14",
+    "@tsconfig/recommended": "^1.0.13",
+    "@types/node": "^25.3.3",
+    "typescript": "^5.9.3"
+  }
+}

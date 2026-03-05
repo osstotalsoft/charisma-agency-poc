@@ -1,3 +1,10 @@
+
+# LangGraph API
+.langgraph_api
+
+# Local env overrides
+.env.local
+
 # Logs
 logs
 *.log
@@ -137,3 +144,4 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
