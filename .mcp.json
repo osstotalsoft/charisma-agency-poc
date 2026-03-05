@@ -14,6 +14,16 @@
     "docs-langchain": {
       "type": "http",
       "url": "https://docs.langchain.com/mcp"
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ]
     }
   }
 }
