@@ -29,6 +29,10 @@ This is a **LangGraph multi-agent POC** using TypeScript. All agents are registe
 | `agent003` | HCM Holiday Requests | `createAgent()` + MCP tools via `MultiServerMCPClient` (SSE transport) |
 | `agent004` | Internet research | `createDeepAgent()` from `deepagents` + Tavily search + `MemorySaver` checkpointer |
 
+### Agent Independence
+
+Each agent is **self-contained** — it must not import tools, utilities, or modules from other agents' directories. If an agent needs a tool that exists in another agent (e.g. `internet-search.ts`), copy it into the agent's own `tools/` folder. This ensures each agent can be developed, deployed, and reasoned about independently.
+
 ### Two Agent Construction Styles
 
 **Low-level (agent001):** Manually builds a `StateGraph` with typed state (`StateSchema`/`MessagesValue`/`ReducedValue`), explicit nodes, and conditional edges. This is the canonical LangGraph pattern.
