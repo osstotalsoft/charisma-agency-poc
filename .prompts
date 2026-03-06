@@ -6,3 +6,49 @@ I want to create a new agent 007 that can propose a new holiday request with the
 Implementation guidelines:
 - use an internet search tool based on TavilySearch
 - use hcm tools for history, new holiday request, get holiday request or replacements if needed
+
+
+***********************************************************************************************************************
+
+Create agent007 — a "Smart Holiday Bridge Planner" LangGraph agent for a Romanian HCM system.
+
+**Pattern:** Use createDeepAgent (same as agent004). Add MemorySaver checkpointer.
+
+**Tools:**
+- Copy MCP tools from agent003 (same mcpTools.ts pattern, same 4 tools: get_my_holiday_requests,
+  create_holiday_request, get_holiday_request, get_employees_for_func_tag)
+- Copy internet-search tool from agent004
+- reasonLeftId is always 1 (CO — Concediu de Odihna), hardcoded — no tool needed for it
+
+**Behaviour — fully autonomous 7-step workflow triggered by any bridge request:**
+
+1. Search the web for Romanian legal public holidays for the current year (2 searches).
+   Filter to future dates only. Build a HOLIDAY_SET.
+
+2. Rank bridge opportunities: for each upcoming holiday, compute day-of-week,
+   required bridge days (0, 1, or 2 working days), and total consecutive days off.
+   Bridge day validation: a candidate bridge day MUST NOT be in HOLIDAY_SET (common trap:
+   30 Nov Sf. Andrei + 1 Dec Ziua Nationala — never propose 30 Nov as a bridge for 1 Dec).
+   Priority: Wed → 5 days, Tue/Thu → 4 days, Mon/Fri → 3 days (no bridge needed).
+
+3. Call get_my_holiday_requests(currentYear) and extract BLOCKED_SET. Remove any proposal
+   whose bridge day falls inside an existing approved/pending request.
+
+4. Call get_employees_for_func_tag("APPROVALREPLACEMENT", 1, 50), pick one employee at random.
+
+5. Compose proposal: bridge dates, legal holiday name, total consecutive break, replacement,
+   and a short Romanian comment ≤ 50 chars (e.g. "Punte Rusalii").
+
+6. Present the proposal in a bilingual (RO/EN) card format with top-3 alternatives.
+   Ask for user confirmation.
+
+7. On confirmation: call create_holiday_request, display success details, then call
+   get_holiday_request(workflowInstanceId) to confirm persistence.
+   On failure: show error and offer retry with next option.
+
+**System prompt:** put all logic in a systemPrompt.ts (dynamic — inject today's date,
+current year, day-of-week at load time). Include the bridge strategy table, the mandatory
+holiday-set and overlap-check validation steps as explicit instructions in the prompt.
+
+**Language:** respond in the same language the user writes (Romanian or English).
+
