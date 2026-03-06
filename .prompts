@@ -1,0 +1,8 @@
+I want to create a new agent 007 that can propose a new holiday request with the ollowing rules:
+- startdate-enddate in order to bridge romanian legal days with weekends, aim for 1 day 2 days max duration
+- replacement person based on history if exists, if not fetch a random one from replacement list
+- add some relevant comments
+
+Hints:
+- use an internet search tool based on TavilySearch
+- use hcm tools for history, new holiday request, get holiday request or replacements if needed
