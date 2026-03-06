@@ -3,6 +3,6 @@ I want to create a new agent 007 that can propose a new holiday request with the
 - replacement person based on history if exists, if not fetch a random one from replacement list
 - add some relevant comments
 
-Hints:
+Implementation guidelines:
 - use an internet search tool based on TavilySearch
 - use hcm tools for history, new holiday request, get holiday request or replacements if needed
