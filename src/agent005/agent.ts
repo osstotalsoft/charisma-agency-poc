@@ -77,6 +77,9 @@ When reporting findings:
 - Note any conflicting information
 - Highlight the most relevant findings for the user's query`,
       tools: [internetSearch],
+      interruptOn: {
+        internet_search: true,
+      },
     },
   ],
 });
