@@ -2,6 +2,7 @@ import { createDeepAgent, LocalShellBackend, type DeepAgent } from "deepagents";
 import { MemorySaver } from "@langchain/langgraph";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { internetSearch } from "./tools/internet-search.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -29,6 +30,8 @@ You can use the execute tool to run any shell command in the workspace directory
 - Installing packages
 - Git operations
 - Any CLI tool available on the system
+
+You can delegate internet research tasks to your research subagent using the task tool. Use it when users need information from the web.
 
 Help users manage their files efficiently. When asked to explore, start with ls to show what's available.
 
@@ -59,4 +62,21 @@ export const agent: DeepAgent = createDeepAgent({
   checkpointer: new MemorySaver(),
   memory: ["/MEMORY.md"],
   skills: ["/skills/"],
+  subagents: [
+    {
+      name: "researcher",
+      description:
+        "Performs internet research using Tavily search. Delegate research tasks, fact-finding, and information gathering to this subagent.",
+      systemPrompt: `You are a research assistant. Your job is to conduct thorough internet research and return well-organized findings.
+
+Use the internet_search tool to find relevant information. You can run multiple searches to gather comprehensive results.
+
+When reporting findings:
+- Summarize key points clearly
+- Include source URLs when available
+- Note any conflicting information
+- Highlight the most relevant findings for the user's query`,
+      tools: [internetSearch],
+    },
+  ],
 });
