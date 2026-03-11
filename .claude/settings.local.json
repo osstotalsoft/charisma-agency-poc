@@ -3,5 +3,10 @@
     "allow": [
       "Bash(npm start:*)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "playwright",
+    "docs-langchain",
+    "context7"
+  ]
 }

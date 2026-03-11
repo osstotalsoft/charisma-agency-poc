@@ -58,4 +58,5 @@ export const agent: DeepAgent = createDeepAgent({
   backend,
   checkpointer: new MemorySaver(),
   memory: ["/MEMORY.md"],
+  skills: ["/skills/"],
 });
