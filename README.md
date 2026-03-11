@@ -62,3 +62,19 @@ Requires `HOLIDAY_REQUEST_MCP_URL` and `EMPLOYEE_PROFILE_MCP_URL` env vars point
 An expert research agent built with `createDeepAgent()` from the `deepagents` library. Conducts thorough research and writes polished reports using an internet search tool powered by Tavily.
 
 Requires a `TAVILY_API_KEY` env var.
+
+### agent005
+
+A File Management Assistant built with `createDeepAgent()` from the `deepagents` library. Helps users explore, read, create, edit, and search files in a sandboxed workspace directory (`src/agent005/workspace/`).
+
+Tools (provided by `LocalShellBackend`):
+
+- **ls** — list files and directories
+- **read_file** — read file contents
+- **write_file** — create or overwrite files
+- **edit_file** — make targeted edits to existing files
+- **glob** — find files matching patterns
+- **grep** — search file contents with regex patterns
+- **execute** — run shell commands in the workspace
+
+Also supports persistent memory via `/MEMORY.md` and self-updating user preferences.

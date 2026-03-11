@@ -28,6 +28,7 @@ This is a **LangGraph multi-agent POC** using TypeScript. All agents are registe
 | `agent002` | Weather lookup | `createAgent()` from `langchain` — minimal wrapper |
 | `agent003` | HCM Holiday Requests | `createAgent()` + MCP tools via `MultiServerMCPClient` (SSE transport) |
 | `agent004` | Internet research | `createDeepAgent()` from `deepagents` + Tavily search + `MemorySaver` checkpointer |
+| `agent005` | File Management Assistant | `createDeepAgent()` from `deepagents` + `LocalShellBackend` (virtualMode) + `MemorySaver` checkpointer |
 
 ### Two Agent Construction Styles
 
