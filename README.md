@@ -1,6 +1,6 @@
 # Charisma Agency
 
-A LangGraph agent with arithmetic tools (add, multiply, divide) built with LangChain and LangGraph.
+An AI agency built with LangChain and LangGraph that exposes specialized agents like arithmetic, weather, HCM holiday requests (via MCP), internet research, and file management.
 
 ## Setup
 
