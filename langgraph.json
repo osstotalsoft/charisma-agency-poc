@@ -8,7 +8,8 @@
     "agent002": "./src/agent002/agent.ts:agent",
     "agent003": "./src/agent003/agent.ts:agent",
     "agent004": "./src/agent004/agent.ts:agent",
-    "agent005": "./src/agent005/agent.ts:agent"
+    "agent005": "./src/agent005/agent.ts:agent",
+    "agent007": "./src/agent007/agent.ts:agent"
   },
   "env": ".env.local"
 }

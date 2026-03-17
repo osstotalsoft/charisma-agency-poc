@@ -29,6 +29,7 @@ This is a **LangGraph multi-agent POC** using TypeScript. All agents are registe
 | `agent003` | HCM Holiday Requests | `createAgent()` + MCP tools via `MultiServerMCPClient` (SSE transport) |
 | `agent004` | Internet research | `createDeepAgent()` from `deepagents` + Tavily search + `MemorySaver` checkpointer |
 | `agent005` | File Management Assistant | `createDeepAgent()` from `deepagents` + `LocalShellBackend` (virtualMode) + `MemorySaver` checkpointer |
+| `agent007` | Smart Holiday Bridge Planner | `createDeepAgent()` from `deepagents` + MCP tools + Tavily search + `MemorySaver` checkpointer |
 
 ### Two Agent Construction Styles
 
@@ -49,10 +50,10 @@ The `DEV_TENANT_ID`, `DEV_USER_PASSPORT`, `DEV_AUTHORIZATION`, `DEV_LANGUAGE` va
 | `OPENAI_API_KEY` | Required for all agents |
 | `OPENAI_MODEL` | Model name (default: `gpt-4o-mini`) |
 | `LANGSMITH_API_KEY` + `LANGCHAIN_TRACING_V2` | LangSmith tracing |
-| `TAVILY_API_KEY` | Required for agent004 internet search |
-| `HOLIDAY_REQUEST_MCP_URL` | agent003 holiday request MCP server |
-| `EMPLOYEE_PROFILE_MCP_URL` | agent003 employee profile MCP server |
-| `DEV_TENANT_ID`, `DEV_USER_PASSPORT`, `DEV_AUTHORIZATION`, `DEV_LANGUAGE` | agent003 dev user context |
+| `TAVILY_API_KEY` | Required for agent004 and agent007 |
+| `HOLIDAY_REQUEST_MCP_URL` | agent003/agent007 holiday request MCP server |
+| `EMPLOYEE_PROFILE_MCP_URL` | agent003/agent007 employee profile MCP server |
+| `DEV_TENANT_ID`, `DEV_USER_PASSPORT`, `DEV_AUTHORIZATION`, `DEV_LANGUAGE` | agent003/agent007 dev user context |
 
 ### TypeScript Config
 
